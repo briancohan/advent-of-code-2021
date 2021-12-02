@@ -13,16 +13,17 @@ def average_data(data: list[int], window: int = 3) -> list[int]:
     return [sum(data[i : i + window]) for i in range(len(data) - window + 1)]
 
 
-def part_1():
-    data = read_data(Path("input.txt").read_text())
+def part_1(raw_data):
+    data = read_data(raw_data)
     print(count_increases(data))
 
 
-def part_2():
-    data = average_data(read_data(Path("input.txt").read_text()))
+def part_2(raw_data):
+    data = average_data(read_data(raw_data))
     print(count_increases(data))
 
 
 if __name__ == "__main__":
-    part_1()
-    part_2()
+    raw_data = Path("input.txt").read_text()
+    part_1(raw_data)
+    part_2(raw_data)
